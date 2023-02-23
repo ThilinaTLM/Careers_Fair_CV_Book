@@ -6,6 +6,8 @@
 
 <Heading heading="About Me" />
 
-<p>
-    {d}
-</p>
+<div class="text-justify">
+    <p class="text-xs line-clamp-5">
+        {d}
+    </p>
+</div>

@@ -8,10 +8,10 @@
 
 {#each d as skill}
     <div class="my-3">
-        <h3 class="font-semibold">
+        <h3 class="font-semibold text-xs">
             {skill.heading}
         </h3>
-        <p class="text-gray-600 text-sm">
+        <p class="text-xs line-clamp-4">
             {skill.skills.join(" | ")}
         </p>
     </div>

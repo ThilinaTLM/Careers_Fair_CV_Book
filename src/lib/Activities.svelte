@@ -8,10 +8,10 @@
 
 {#each d as activity}
     <div class="my-3">
-        <h3 class="font-semibold">
+        <p class="font-bold text-xs line-clamp-1">
             {activity.heading}
-        </h3>
-        <p class="text-gray-600 text-sm">
+        </p>
+        <p class="text-xs line-clamp-2">
             {activity.description}
         </p>
     </div>

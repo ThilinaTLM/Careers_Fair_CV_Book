@@ -9,13 +9,13 @@
 
 {#each d as project}
     <div class="my-3">
-        <h3 class="font-semibold">
+        <p class="font-bold text-xs line-clamp-1">
             {project.heading}
-        </h3>
-        <p class="text-gray-600 text-sm">
+        </p>
+        <p class="text-secondary font-medium text-xs line-clamp-1">
             {project.techStack}
         </p>
-        <p class="text-gray-600 text-sm">
+        <p class="text-xs mt-1 line-clamp-2">
             {project.description}
         </p>
     </div>

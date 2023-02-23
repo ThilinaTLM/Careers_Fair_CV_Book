@@ -8,13 +8,18 @@
 
 {#each d as experience}
     <div class="my-3">
-        <h3 class="font-semibold">
-            {experience.heading} - {experience.date}
-        </h3>
-        <p class="text-gray-600 text-sm">
+        <div class="flex justify-between w-[80%]">
+            <p class="font-bold text-xs">
+                {experience.heading}
+            </p>
+            <p class="text-secondary font-medium text-[10px]">
+                {experience.date}
+            </p>
+        </div>
+        <p class="text-secondary font-medium text-xs">
             {experience.subheading}
         </p>
-        <p class="text-gray-600 text-sm">
+        <p class="text-xs mt-1 line-clamp-3">
             {experience.description}
         </p>
     </div>

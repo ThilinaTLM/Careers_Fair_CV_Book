@@ -5,14 +5,14 @@
 </script>
 
 
-<Heading heading="Awards" />
+<Heading heading="Awards and Achievements" />
 
 {#each d as award}
-    <div class="my-3">
-        <h3 class="font-semibold">
+    <div class="my-3 overflow-hidden text-ellipsis whitespace-nowrap">
+        <p class="font-bold text-xs">
             {award.heading}
-        </h3>
-        <p class="text-gray-600 text-sm">
+        </p>
+        <p class="text-xs line-clamp-2">
             {award.description}
         </p>
     </div>
