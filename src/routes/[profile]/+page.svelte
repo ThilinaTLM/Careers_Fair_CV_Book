@@ -4,13 +4,15 @@
     import {error} from "@sveltejs/kit";
     import ProfilePage from "$lib/ProfilePage.svelte";
 
-    export let data;
-    let profile: any = {};
+    let loading: boolean = true;
+    let profile: any;
 
     const loadProfile = async () => {
+        const url = new URL(window.location.href);
+        const path = url.pathname.split('/')[url.pathname.split('/').length - 1];
+
         const d = await getData();
-        const p = d.filter((item: any) => item["Index Number"] === data.profile)[0];
-        console.log(p, d.profile)
+        const p = d.filter((e: any) => e.id === path)[0];
         if (p) {
             profile = preprocess(p);
         } else {
@@ -22,4 +24,12 @@
 
 </script>
 
-<ProfilePage d={profile} />
+{#if loading}
+    <h1>Loading...</h1>
+{:else}
+    {#if profile === undefined}
+        <h1>Not found</h1>
+    {:else}
+        <ProfilePage d={profile}/>
+    {/if}
+{/if}

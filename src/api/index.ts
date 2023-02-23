@@ -5,8 +5,7 @@ export async function getData() {
 }
 
 export const preprocess = (raw: any) => {
-
-    const data: any = {}
+     const data: any = {}
 
     // basic info
     data.firstName = raw['First Name']
@@ -96,7 +95,7 @@ export const preprocess = (raw: any) => {
     for (let i = 2; i <= 3; i++) {
         const heading = raw[`Experience 0${i} - Job Title`]
         const subheading = raw[`Experience 0${i} - Company Name`]
-        const date = `${raw[`Experience 0${i} - Start Date`]} - ${raw[`Experience ${i} - End Date`]}`
+        const date = shortDateRange(raw[`Experience 0${i} - Start Date`], raw[`Experience 0${i} - End Date`])
         const description = raw[`Experience 0${i} - Description`]
         if (heading) {
             data.experiences.push({
@@ -147,6 +146,10 @@ function shortMonthYear(date: string) {
 
 function shortDateRange(start: string, end: string) {
     const startDate = shortMonthYear(start);
-    const endDate = shortMonthYear(end);
-    return `${startDate} - ${endDate}`.trim();
+    let endDate = shortMonthYear(end);
+    console.log('DATE', `${startDate} - ${endDate}`)
+    if (!endDate) {
+        endDate = 'Present'
+    }
+    return `${startDate} - ${endDate}`;
 }
