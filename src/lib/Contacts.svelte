@@ -7,9 +7,11 @@
 <Heading heading="Contact" />
 
 {#each d as contact}
-    <div class="grid grid-cols-con">
+    <div class="grid grid-cols-con items-center">
         <img src={contact.icon} class="w-[12px]" alt="icon" />
-        <a href={contact.link} class="decoration-0 font-medium">{contact.label}</a>
+        <div class="overflow-hidden text-ellipsis whitespace-nowrap -ml-2">
+            <a href={contact.link} class="decoration-0 font-light text-sm">{contact.label}</a>
+        </div>
     </div>
 {/each}
 
