@@ -1,15 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./src/**/*.{html,js,svelte,ts}'],
+  content: ["./src/**/*.{html,js,svelte,ts}"],
   theme: {
     extend: {
       colors: {
-        primary: '#066fcc',
-      }
+        primary: "#066fcc",
+        secondary: "#646464",
+      },
     },
     fontFamily: {
-      roboto: ['Roboto'],
+      roboto: ["Roboto"],
     },
   },
-  plugins: [],
-}
+  plugins: [
+    require('@tailwindcss/line-clamp'),
+  ],
+};
