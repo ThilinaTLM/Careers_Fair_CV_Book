@@ -10,7 +10,7 @@
     <div class="grid grid-cols-con items-center">
         <img src={contact.icon} class="w-[12px]" alt="icon" />
         <div class="overflow-hidden text-ellipsis whitespace-nowrap -ml-2">
-            <a href={contact.link} class="decoration-0 font-light text-xs">{contact.label}</a>
+            <a href={contact.link} class="text-secondary decoration-0 font-medium text-xs">{contact.label}</a>
         </div>
     </div>
 {/each}
