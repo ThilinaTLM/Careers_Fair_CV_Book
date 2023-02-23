@@ -13,24 +13,24 @@
     });
 </script>
 
+<!-- Cover Page -->
+<Page>
+    <div class="grid place-items-center w-full h-full">
+        <h1 class="text-3xl font-bold">CSE Career Fair 2023</h1>
+    </div>
+</Page>
+
+<!-- Introduction -->
+<Page>
+    <div class="grid place-items-center w-full h-full">
+        <h1 class="text-3xl font-bold">Introduction</h1>
+    </div>
+</Page>
+
 <!-- Profiles -->
 {#each data as profile}
     <ProfilePage d={profile} />
 {/each}
-
-<!-- Cover Page -->
-<!--<Page>-->
-<!--    <div class="grid place-items-center w-full h-full">-->
-<!--        <h1 class="text-3xl font-bold">CSE Career Fair 2023</h1>-->
-<!--    </div>-->
-<!--</Page>-->
-
-<!-- Introduction -->
-<!--<Page>-->
-<!--    <div class="grid place-items-center w-full h-full">-->
-<!--        <h1 class="text-3xl font-bold">Introduction</h1>-->
-<!--    </div>-->
-<!--</Page>-->
 
 <!-- Index Page -->
 <Page>
