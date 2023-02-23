@@ -2,7 +2,14 @@
 module.exports = {
   content: ['./src/**/*.{html,js,svelte,ts}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#066fcc',
+      }
+    },
+    fontFamily: {
+      roboto: ['Roboto'],
+    },
   },
   plugins: [],
 }
