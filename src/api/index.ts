@@ -1,7 +1,12 @@
 import { env } from '$env/dynamic/public'
 
 export async function getData() {
-    const data = await fetch(env.PUBLIC_HOST + "/data");
+    const data = await fetch(env.PUBLIC_HOST + "/data", {
+        headers: {
+            'Bypass-Tunnel-Reminder': 'true',
+        },
+        method: 'GET',
+    });
     return await data.json();
 }
 
@@ -148,7 +153,6 @@ function shortMonthYear(date: string) {
 function shortDateRange(start: string, end: string) {
     const startDate = shortMonthYear(start);
     let endDate = shortMonthYear(end);
-    console.log('DATE', `${startDate} - ${endDate}`)
     if (!endDate) {
         endDate = 'Present'
     }
