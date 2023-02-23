@@ -4,23 +4,20 @@
     export let d: any;
 </script>
 
-<Heading heading="Experiences" />
+<Heading heading="Education" />
 
-{#each d as experience}
-    <div class="my-3">
+{#each d as education}
+    <div class="my-2">
         <div class="flex justify-between">
             <p class="font-bold text-xs">
-                {experience.heading}
-            </p>
-            <p class="text-secondary font-medium text-[10px]">
-                {experience.date}
+                {education.heading}
             </p>
         </div>
         <p class="text-secondary font-medium text-xs">
-            {experience.subheading}
+            {education.subheading}
         </p>
         <p class="text-xs mt-1 line-clamp-3">
-            {experience.description}
+            {education.description}
         </p>
     </div>
 {/each}

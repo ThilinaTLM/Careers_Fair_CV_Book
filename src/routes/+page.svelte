@@ -3,6 +3,7 @@
     import ProfilePage from "../lib/ProfilePage.svelte";
     import { onMount } from "svelte";
     import { getData, preprocess } from "../api";
+    import IndexPage from "../lib/IndexPage.svelte";
 
     let data: any = [];
     let profiles = false;
@@ -14,6 +15,7 @@
         if (p) {
             data = await getData();
             data = data.map(preprocess);
+            data = data.sort((a, b) => a.lastName.localeCompare(b.lastName));
             profiles = true;
             console.log(data);
         } else {
@@ -21,6 +23,10 @@
         }
     });
 </script>
+
+<svelte:head>
+    <title>CSE 2023 Carriers Fair CV Book</title>
+</svelte:head>
 
 <!-- Cover Page -->
 <Page>
@@ -36,19 +42,15 @@
     </div>
 </Page>
 
+<!-- Index Page -->
+<IndexPage d={data} />
+
 <!-- Profiles -->
 {#if profiles}
     {#each data as profile}
         <ProfilePage d={profile} />
     {/each}
 {/if}
-
-<!-- Index Page -->
-<Page>
-    <div class="grid place-items-center w-full h-full">
-        <h1 class="text-3xl font-bold">Index</h1>
-    </div>
-</Page>
 
 <!-- Back Cover -->
 <Page>

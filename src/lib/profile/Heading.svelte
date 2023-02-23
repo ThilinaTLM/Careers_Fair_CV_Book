@@ -3,7 +3,7 @@
 </script>
 
 <div class="overflow-hidden">
-    <div class="inline-block mt-4 mb-3">
+    <div class="inline-block mt-3 mb-1">
         <p
         class="text-lg font-semibold text-primary uppercase leading-6"
     >

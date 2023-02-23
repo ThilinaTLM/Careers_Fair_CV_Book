@@ -1,5 +1,5 @@
 <script lang="ts">
-    import Heading from "$lib/Heading.svelte";
+    import Heading from "./Heading.svelte";
 
     export let d: any;
 </script>

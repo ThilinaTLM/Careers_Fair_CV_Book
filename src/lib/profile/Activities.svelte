@@ -4,16 +4,15 @@
     export let d: any;
 </script>
 
+<Heading heading="Extra Curricular Activities" />
 
-<Heading heading="Awards and Achievements" />
-
-{#each d as award}
-    <div class="my-3">
+{#each d as activity}
+    <div class="my-2">
         <p class="font-bold text-xs">
-            {award.heading}
+            {activity.heading}
         </p>
         <p class="text-xs line-clamp-2">
-            {award.description}
+            {activity.description}
         </p>
     </div>
 {/each}
