@@ -12,14 +12,15 @@ export const preprocess = (raw: any) => {
     data.firstName = raw['First Name']
     data.lastName = raw['Last Name']
     data.aboutMe = raw['About Me']
+    data.index = raw['Index Number']
     data.profilePic = raw['Profile Picture']
 
     // contact info
     data.contacts = [
         {
             icon: 'telephone.png',
-            label: raw['Contact Number '],
-            link: `tel:${raw['Contact Number ']}`,
+            label: raw['Contact Number'],
+            link: `tel:${raw['Contact Number']}`,
         },
         {
             icon: 'email.png',
@@ -28,7 +29,7 @@ export const preprocess = (raw: any) => {
         },
         {
             icon: 'github.png',
-            label: raw['GitHub Username '],
+            label: raw['GitHub Username'],
             link: raw['GitHub Link'],
         },
         {
@@ -89,7 +90,7 @@ export const preprocess = (raw: any) => {
     data.experiences = [ {
         heading: raw['Experience 01 - Internship Job Title'],
         subheading: raw['Experience 01 - Internship Company'],
-        date: shortMonthYear(raw['Experience 01 - Internship - Start Date']) + ' - ' + shortMonthYear(raw['Experience 01 - Intenship - End Date']),
+        date: shortDateRange(raw['Experience 01 - Internship - Start Date'], raw['Experience 01 - Intenship - End Date']),
         description: raw['Experience 01 - Internship Description'],
     }]
     for (let i = 2; i <= 3; i++) {
@@ -139,6 +140,13 @@ export const preprocess = (raw: any) => {
 }
 
 function shortMonthYear(date: string) {
+    if (!date) return '';
     const d = new Date(date);
     return `${d.toLocaleString('default', { month: 'short' }).toUpperCase()} ${d.getFullYear()}`;
+}
+
+function shortDateRange(start: string, end: string) {
+    const startDate = shortMonthYear(start);
+    const endDate = shortMonthYear(end);
+    return `${startDate} - ${endDate}`.trim();
 }

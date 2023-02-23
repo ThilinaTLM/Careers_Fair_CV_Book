@@ -13,7 +13,7 @@
             {project.heading}
         </h3>
         <p class="text-gray-600 text-sm">
-            {project.techStack}
+            {project.subheading}
         </p>
         <p class="text-gray-600 text-sm">
             {project.description}
