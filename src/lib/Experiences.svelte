@@ -4,16 +4,18 @@
     export let d: any;
 </script>
 
+<Heading heading="Experiences" />
 
-<Heading heading="Awards" />
-
-{#each d as award}
+{#each d as experience}
     <div class="my-3">
         <h3 class="font-semibold">
-            {award.heading}
+            {experience.heading} - {experience.date}
         </h3>
         <p class="text-gray-600 text-sm">
-            {award.description}
+            {experience.subheading}
+        </p>
+        <p class="text-gray-600 text-sm">
+            {experience.description}
         </p>
     </div>
 {/each}

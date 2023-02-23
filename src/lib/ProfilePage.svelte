@@ -2,6 +2,11 @@
     import Page from "./Page.svelte";
     import Contacts from "$lib/Contacts.svelte";
     import Skills from "$lib/Skills.svelte";
+    import Awards from "./Awards.svelte";
+    import AboutMe from "./AboutMe.svelte";
+    import Experiences from "./Experiences.svelte";
+    import Projects from "./Projects.svelte";
+    import Activities from "./Activities.svelte";
 
     export let d: any;
 </script>
@@ -19,9 +24,13 @@
             <div class="pl-6 pt-[65px]">
                 <Contacts d={d.contacts} />
                 <Skills d={d.skills} />
+                <Awards d={d.awards} />
             </div>
-            <div>
-                second column
+            <div class="p-4">
+                <AboutMe d={d.aboutMe} />
+                <Experiences d={d.experiences} />
+                <Projects d={d.projects} />
+                <Activities d={d.activities} />
             </div>
         </div>
         <div class="absolute left-[34px] top-[46px] w-[135px] h-[135px] rounded-full bg-gray-300">
@@ -37,7 +46,7 @@
     }
 
     .grid-cols-content {
-        grid-template-columns: 233px 1fr;
+        grid-template-columns: 233px 550px;
     }
 
 

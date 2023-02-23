@@ -5,15 +5,18 @@
 </script>
 
 
-<Heading heading="Awards" />
+<Heading heading="Projects" />
 
-{#each d as award}
+{#each d as project}
     <div class="my-3">
         <h3 class="font-semibold">
-            {award.heading}
+            {project.heading}
         </h3>
         <p class="text-gray-600 text-sm">
-            {award.description}
+            {project.techStack}
+        </p>
+        <p class="text-gray-600 text-sm">
+            {project.description}
         </p>
     </div>
 {/each}

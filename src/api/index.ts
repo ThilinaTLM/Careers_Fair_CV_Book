@@ -6,9 +6,6 @@ export async function getData() {
 
 export const preprocess = (raw: any) => {
 
-
-    const AL = `G.C.E. AL Examination 2018 | ${raw['A/L Examination Results']} | IR - ${raw['A/L - Island Rank']}`
-
     const data: any = {}
 
     // basic info
@@ -62,74 +59,80 @@ export const preprocess = (raw: any) => {
     ]
 
     // archivements
+    data.awards = []
+    for (let i = 1; i <= 3; i++) {
+        const heading = raw[`Achievement 0${i} - Name`]
+        const description = raw[`Achievement 0${i} - Highlight`]
+        if (heading && description) {
+            data.awards.push({
+                heading,
+                description,
+            })
+        }
+    }
 
-    const data: any = {
-        archivements: [
-            {
-                name: raw['Achievement 01 - Name'],
-                description: raw['Achievement 01 - Highlight'],
-            },
-            {
-                name: raw['Achievement 02 - Name'],
-                description: raw['Achievement 02 - Highlight'],
-            },
-        ],
-
-        // right side
-        
-        education: {
-            gpa: raw['GPA'],
-            school: {
-                heading: raw['School Name'],
-                description: AL,
-            }
+    // education
+    data.education = [
+        {
+            heading: "University of Moratuwa",
+            subheading: "B.Sc. in Computer Science and Engineering",
+            description: `CGPA: ${raw['GPA']}`
         },
-        experiences: [
-            {
-                heading: raw['Experience 01 - Internship Job Title'],
-                subheading: raw['Experience 01 - Internship Company'],
-                date: shortMonthYear(raw['Experience 01 - Internship - Start Date']) + ' - ' + shortMonthYear(raw['Experience 01 - Intenship - End Date']),
-                description: raw['Experience 01 - Internship Description'],
-            },
-            {
-                heading: raw['Experience 02 - Job Title'],
-                subheading: raw['Experience 02 - Company Name'],
-                date: shortMonthYear(raw['Experience 02 - Start Date']) + ' - ' + shortMonthYear(raw['Experience 02 - End Date']),
-                description: raw['Experience 02 - Description'],
-            },
-        ],
-        projects: [
-            {
-                heading: raw['Project 01 - Title'],
-                subheading: raw['Project 01 - Tech Stack'],
-                description: raw['Project 01 - Description'],
-            },
-            {
-                heading: raw['Project 02 - Title'],
-                subheading: raw['Project 02 - Tech Stack'],
-                description: raw['Project 02 - Description'],
-            },
-            {
-                heading: raw['Project 03 - Title'],
-                subheading: raw['Project 03 - Tech Stack'],
-                description: raw['Project 03 - Description'],
-            },
-            {
-                heading: raw['Project 04 - Title'],
-                subheading: raw['Project 04 - Tech Stack'],
-                description: raw['Project 04 - Description'],
-            },
-        ],
-        extra: [
-            {
-                name: raw['Activity 01 - Name'],
-                description: raw['Activity 01 - Description'],
-            },
-            {
-                name: raw['Activity 02 - Name'],
-                description: raw['Activity 02 - Description'],
-            },
-        ],
+        {
+            heading: raw['School Name'],
+            subheading: "G.C.E. Advanced Level Examination 2017",
+            description: `${raw['A/L Examination Results']} | IR - ${raw['A/L - Island Rank']}`
+        }
+    ]
+
+    // experiences
+    data.experiences = [ {
+        heading: raw['Experience 01 - Internship Job Title'],
+        subheading: raw['Experience 01 - Internship Company'],
+        date: shortMonthYear(raw['Experience 01 - Internship - Start Date']) + ' - ' + shortMonthYear(raw['Experience 01 - Intenship - End Date']),
+        description: raw['Experience 01 - Internship Description'],
+    }]
+    for (let i = 2; i <= 3; i++) {
+        const heading = raw[`Experience 0${i} - Job Title`]
+        const subheading = raw[`Experience 0${i} - Company Name`]
+        const date = `${raw[`Experience 0${i} - Start Date`]} - ${raw[`Experience ${i} - End Date`]}`
+        const description = raw[`Experience 0${i} - Description`]
+        if (heading) {
+            data.experiences.push({
+                heading,
+                subheading,
+                date,
+                description,
+            })
+        }
+    }
+
+    // projects
+    data.projects = []
+    for (let i = 1; i <= 5; i++) {
+        const heading = raw[`Project 0${i} - Title`]
+        const subheading = raw[`Project 0${i} - Tech Stack`]
+        const description = raw[`Project 0${i} - Description`]
+        if (heading) {
+            data.projects.push({
+                heading,
+                subheading,
+                description,
+            })
+        }
+    }
+    
+    // activities
+    data.activities = []
+    for (let i = 1; i <= 5; i++) {
+        const heading = raw[`Activity 0${i} - Name`]
+        const description = raw[`Activity 0${i} - Description`]
+        if (heading) {
+            data.activities.push({
+                heading,
+                description,
+            })
+        }
     }
 
     return data
