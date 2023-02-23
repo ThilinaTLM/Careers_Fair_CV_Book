@@ -8,7 +8,7 @@
 <Heading heading="Awards and Achievements" />
 
 {#each d as award}
-    <div class="my-3 overflow-hidden text-ellipsis whitespace-nowrap">
+    <div class="my-3">
         <p class="font-bold text-xs">
             {award.heading}
         </p>

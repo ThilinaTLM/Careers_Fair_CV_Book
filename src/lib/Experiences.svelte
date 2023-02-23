@@ -8,7 +8,7 @@
 
 {#each d as experience}
     <div class="my-3">
-        <div class="flex justify-between w-[80%]">
+        <div class="flex justify-between">
             <p class="font-bold text-xs">
                 {experience.heading}
             </p>
