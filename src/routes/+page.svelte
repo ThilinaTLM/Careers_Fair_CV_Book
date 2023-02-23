@@ -5,11 +5,20 @@
     import { getData, preprocess } from "../api";
 
     let data: any = [];
+    let profiles = false;
 
     onMount(async () => {
-        data = await getData();
-        data = data.map(preprocess);
-        console.log(data)
+        // get query params
+        const urlParams = new URLSearchParams(window.location.search);
+        const p = urlParams.get("profiles");
+        if (p) {
+            data = await getData();
+            data = data.map(preprocess);
+            profiles = true;
+            console.log(data);
+        } else {
+            return;
+        }
     });
 </script>
 
@@ -28,9 +37,11 @@
 </Page>
 
 <!-- Profiles -->
-{#each data as profile}
-    <ProfilePage d={profile} />
-{/each}
+{#if profiles}
+    {#each data as profile}
+        <ProfilePage d={profile} />
+    {/each}
+{/if}
 
 <!-- Index Page -->
 <Page>

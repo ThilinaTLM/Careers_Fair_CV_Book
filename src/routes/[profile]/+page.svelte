@@ -19,14 +19,17 @@
     }
 
     onMount(loadProfile);
-
 </script>
 
 {#if loading}
-    <h1>Loading...</h1>
+    <div class="grid w-screen h-screen content-center">
+        <h1 class="text-center">Loading...</h1>
+    </div>
 {:else}
     {#if profile === undefined}
-        <h1>Not found</h1>
+        <div class="grid w-screen h-screen content-center">
+            <h1 class="text-center">Not Found</h1>
+        </div>
     {:else}
         <ProfilePage d={profile}/>
     {/if}

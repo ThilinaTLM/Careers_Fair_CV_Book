@@ -1,7 +1,7 @@
-const HOST = "https://101f-34-135-232-37.ngrok.io/"
+import { env } from '$env/dynamic/public'
 
 export async function getData() {
-    const data = await fetch(HOST + "data");
+    const data = await fetch(env.PUBLIC_HOST + "/data");
     return await data.json();
 }
 
@@ -13,7 +13,7 @@ export const preprocess = (raw: any) => {
     data.lastName = raw['Last Name']
     data.aboutMe = raw['About Me']
     data.index = raw['Index Number']
-    data.photo = `${HOST}photo/${raw['Index Number']}`
+    data.photo = `${env.PUBLIC_HOST}/photo/${raw['Index Number']}`
 
     // contact info
     data.contacts = [
