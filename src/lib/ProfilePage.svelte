@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="grid grid-cols-content">
-            <div class="pl-6 pt-[65px]">
+            <div class="pl-6 pt-[80px]">
                 <Contacts d={d.contacts} />
                 <Skills d={d.skills} />
                 <Awards d={d.awards} />
@@ -33,8 +33,8 @@
                 <Activities d={d.activities} />
             </div>
         </div>
-        <div class="absolute left-[34px] top-[46px] w-[135px] h-[135px] rounded-full bg-gray-300">
-            <!-- Image -->
+        <div class="absolute left-[40px] top-[46px] w-[150px] h-[150px] rounded-full bg-gray-300">
+            <img src="{d.photo}" class="rounded-full w-full h-full object-cover" />
         </div>
     </div>
 </Page>

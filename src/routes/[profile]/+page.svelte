@@ -10,14 +10,12 @@
     const loadProfile = async () => {
         const url = new URL(window.location.href);
         const path = url.pathname.split('/')[url.pathname.split('/').length - 1];
-
         const d = await getData();
-        const p = d.filter((e: any) => e.id === path)[0];
+        const p = d.filter((e: any) => e["Index Number"] === path)[0];
         if (p) {
             profile = preprocess(p);
-        } else {
-            throw error(404, 'Not found');
         }
+        loading = false;
     }
 
     onMount(loadProfile);
