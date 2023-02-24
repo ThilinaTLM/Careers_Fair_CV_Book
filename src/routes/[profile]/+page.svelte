@@ -30,7 +30,7 @@
 
 {#if loading}
     <div class="grid w-screen h-screen content-center">
-        <h1 class="text-center">Loading...</h1>
+        <h1 class="text-3xl font-bold text-center">Loading...</h1>
     </div>
 {:else}
     {#if profile === undefined}

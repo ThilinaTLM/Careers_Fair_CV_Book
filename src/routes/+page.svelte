@@ -1,25 +1,20 @@
 <script lang="ts">
-    import Page from "../lib/Page.svelte";
-    import ProfilePage from "../lib/ProfilePage.svelte";
-    import { onMount } from "svelte";
-    import { getData, preprocess } from "../api";
-    import IndexPage from "../lib/IndexPage.svelte";
+    import {onMount} from "svelte";
+    import {getData, preprocess} from "../api";
+    import {error} from "@sveltejs/kit";
 
     let data: any = [];
-    let profiles = false;
+    let loading = true;
 
     onMount(async () => {
-        // get query params
-        const urlParams = new URLSearchParams(window.location.search);
-        const p = urlParams.get("profiles");
-        if (p) {
+        try {
             data = await getData();
             data = data.map(preprocess);
             data = data.sort((a, b) => a.lastName.localeCompare(b.lastName));
-            profiles = true;
-            console.log(data);
-        } else {
-            return;
+        } catch (e) {
+            throw error(500, {message: e.message});
+        } finally {
+            loading = false;
         }
     });
 </script>
@@ -28,33 +23,26 @@
     <title>CSE 2023 Carriers Fair CV Book</title>
 </svelte:head>
 
-<!-- Cover Page -->
-<Page>
-    <div class="grid place-items-center w-full h-full">
-        <h1 class="text-3xl font-bold">CSE Career Fair 2023</h1>
+{#if loading}
+    <div class="grid w-screen h-screen content-center">
+        <h1 class="text-3xl font-bold text-center">Loading...</h1>
     </div>
-</Page>
-
-<!-- Introduction -->
-<Page>
-    <div class="grid place-items-center w-full h-full">
-        <h1 class="text-3xl font-bold">Introduction</h1>
+{:else}
+    <div class="grid grid-cols-con w-full p-[30px] ">
+        {#each data as p}
+            <a class="inline-block m-3" href="/{p.index}">
+                {p.firstName} {p.lastName} - {p.index}
+            </a>
+        {/each}
     </div>
-</Page>
-
-<!-- Index Page -->
-<IndexPage d={data} />
-
-<!-- Profiles -->
-{#if profiles}
-    {#each data as profile}
-        <ProfilePage d={profile} />
-    {/each}
 {/if}
 
-<!-- Back Cover -->
-<Page>
-    <div class="grid place-items-center w-full h-full">
-        <h1 class="text-3xl font-bold">Back Cover</h1>
-    </div>
-</Page>
+
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        grid-gap: 1rem;
+    }
+</style>
+
