@@ -32,34 +32,41 @@
         <h1 class="text-3xl font-bold text-center">Loading...</h1>
     </div>
 {:else}
-    <!-- Cover Page -->
-    <Page>
-        <div class="grid place-items-center w-full h-full">
-            <h1 class="text-3xl font-bold">CSE Career Fair 2023</h1>
+    {#if data.length === 0}
+        <div class="grid w-screen h-screen content-center">
+            <h1 class="text-3xl font-bold text-center">Content API is offline</h1>
+            <h4 class="text-xl text-center">Wait few minutes until it comes back online</h4>
         </div>
-    </Page>
+    {:else}
+        <!-- Cover Page -->
+        <Page>
+            <div class="grid place-items-center w-full h-full">
+                <h1 class="text-3xl font-bold">CSE Career Fair 2023</h1>
+            </div>
+        </Page>
 
-    <!-- Introduction -->
-    <Page>
-        <div class="grid place-items-center w-full h-full">
-            <h1 class="text-3xl font-bold">Introduction</h1>
-        </div>
-    </Page>
+        <!-- Introduction -->
+        <Page>
+            <div class="grid place-items-center w-full h-full">
+                <h1 class="text-3xl font-bold">Introduction</h1>
+            </div>
+        </Page>
 
-    <!-- Index Page -->
-    <IndexPage d={data}/>
+        <!-- Index Page -->
+        <IndexPage d={data}/>
 
-    <!-- Profiles -->
-    {#each data as profile}
-        <ProfilePage d={profile}/>
-    {/each}
+        <!-- Profiles -->
+        {#each data as profile}
+            <ProfilePage d={profile}/>
+        {/each}
 
-    <!-- Back Cover -->
-    <Page>
-        <div class="grid place-items-center w-full h-full">
-            <h1 class="text-3xl font-bold">Back Cover</h1>
-        </div>
-    </Page>
+        <!-- Back Cover -->
+        <Page>
+            <div class="grid place-items-center w-full h-full">
+                <h1 class="text-3xl font-bold">Back Cover</h1>
+            </div>
+        </Page>
+    {/if}
 {/if}
 
 
