@@ -13,7 +13,7 @@
 </script>
 
 <Page>
-    <div class="relative grid grid-rows-con1 h-full w-full font-roboto" id="{d.index}">
+    <div class="relative grid grid-rows-con1 h-full w-full font-roboto bg-red-300" id="{d.index}">
         <div class="grid grid-cols-content bg-primary content-center">
             <div></div>
             <div class="">
@@ -21,22 +21,22 @@
                 <h3 class="text-md text-white">Computer Science & Engineering Undergraduate</h3>
             </div>
         </div>
-        <div class="grid grid-cols-content">
-            <div class="pl-6 pt-[80px]">
+        <div class="grid grid-cols-content gap-4 mx-5 mb-5 h-[988px] overflow-hidden bg-white">
+            <div class="mt-5 pt-[80px] h-max-full overflow-hidden">
                 <Contacts d={d.contacts} />
                 <Skills d={d.skills} />
                 <Awards d={d.awards} />
                 <Activities d={d.activities} />
             </div>
-            <div class="p-4">
+            <div class="mt-5 h-max-full overflow-hidden">
                 <AboutMe d={d.aboutMe} />
                 <Education d={d.education} />
                 <Experiences d={d.experiences} />
-                <Projects d={d.projects} />
+                <Projects d={d.projects.slice(0, 4)} />
             </div>
         </div>
-        <div class="absolute left-[40px] top-[46px] w-[150px] h-[150px] rounded-full bg-gray-300">
-            <img src="{d.photo}" class="rounded-full w-full h-full object-cover" alt="{d.index}" />
+        <div class="absolute left-[40px] top-[46px] w-[150px] h-[150px] rounded-full overflow-hidden bg-gray-300">
+            <img src="{d.photo}" class="w-full h-full object-cover object-position" alt="{d.index}" />
         </div>
     </div>
 </Page>
@@ -48,6 +48,10 @@
     }
 
     .grid-cols-content {
-        grid-template-columns: 233px 550px;
+        grid-template-columns: 233px 1fr;
+    }
+
+    .object-position {
+        object-position: 0 8%;
     }
 </style>
