@@ -91,6 +91,10 @@ export const preprocess = (raw: any) => {
         }
     ]
 
+    if (data.index.startsWith('170')) {
+        data.education[1].subheading = "G.C.E. Ordinary Level Examination 2016"
+    }
+
     // experiences
     data.experiences = [ {
         heading: raw['Experience 01 - Internship Job Title'],
