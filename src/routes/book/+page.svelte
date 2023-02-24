@@ -5,6 +5,7 @@
     import {error} from '@sveltejs/kit';
     import {getData, preprocess} from "../../api";
     import IndexPage from "../../lib/IndexPage.svelte";
+    import Introduction from "$lib/Introduction.svelte";
 
     let data: any = [];
     let loading: boolean = true;
@@ -46,11 +47,7 @@
         </Page>
 
         <!-- Introduction -->
-        <Page>
-            <div class="grid place-items-center w-full h-full">
-                <h1 class="text-3xl font-bold">Introduction</h1>
-            </div>
-        </Page>
+        <Introduction />
 
         <!-- Index Page -->
         <IndexPage d={data}/>

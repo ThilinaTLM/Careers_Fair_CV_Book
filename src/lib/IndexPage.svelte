@@ -2,28 +2,22 @@
     import Page from "$lib/Page.svelte";
 
     export let d: any;
-    const size = 30;
-
-    let pageD = [];
-    $: {
-        if (d) {
-            for (let i = 0; i < d.length; i += size) {
-                pageD.push(d.slice(i, i + size));
-            }
-            pageD = [...pageD]
-        }
-    }
-
+    const size = 58;
+    const pageOffset = 4;
 </script>
 
-{#each pageD as pd}
+{#each Array(Math.ceil(d.length / size)) as _, i}
     <Page>
-        <div class="grid grid-cols-con w-full p-[30px] ">
-            {#each pd as p}
-                <a class="inline-block m-3" href="#{p.index}">
-                    {p.firstName} {p.lastName}
-                </a>
-            {/each}
+        <div class="font-roboto mx-[60px] my-[60px]">
+            <h1 class="text-3xl text-left uppercase mb-6">Indexes</h1>
+
+            <div class="grid grid-cols-con w-full">
+                {#each d.slice(i * size, (i + 1) * size) as p, j}
+                    <a class="inline-block my-1" href="#{p.index}">
+                        {p.firstName}, {p.lastName} ({4 + i * size + j})
+                    </a>
+                {/each}
+            </div>
         </div>
     </Page>
 {/each}

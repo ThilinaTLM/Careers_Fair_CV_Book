@@ -1,0 +1,28 @@
+<script>
+    import Page from "$lib/Page.svelte";
+</script>
+
+
+<Page>
+    <div class="font-roboto my-[50px] mx-[60px]">
+        <h1 class="text-3xl text-center uppercase"> Introduction</h1>
+        <p class="text-lg mt-6 text-justify">
+            The students enrolled in the B.Sc. Engineering Honors Degree specializing in Computer Science
+            and Engineering possess the proficiency and aptitude to adapt effectively to digital transformation.
+            As part of their comprehensive academic program, these students are equipped with a broad
+            understanding of computer systems, software development, data analytics, and other relevant fields.
+            The <strong>CSE Careers Day 2023</strong> provides the opportunity for organizations to interact and evaluate the potential
+            of recruiting and employing individuals of such high competence.
+        </p>
+        <p class="text-lg mt-6 text-justify">
+            This booklet consists of the résumés of the CSE undergraduates of the ‘18 Batch who are expected to graduate
+            soon. These résumés highlight their most unique competencies, experience, and knowledge amassed from diverse
+            domains, both before and during their undergraduate period.
+        </p>
+        <p class="text-lg mt-6 text-justify">
+            To facilitate convenience of use, these resumes adhere to a standardized format and are organized
+            alphabetically by the first name of each undergraduate. Furthermore, for the purpose of reference by last
+            name, an index is located at the end of the booklet, which lists them accordingly.
+        </p>
+    </div>
+</Page>
