@@ -10,7 +10,7 @@
     const loadProfile = async () => {
         try {
             const d = await getData();
-            const p = d.filter((e: any) => e["Index Number"] === index)[0];
+            const p = d.filter((e: any) => e["Index Number"].trim() === index)[0];
             if (p) {
                 profile = preprocess(p);
             }

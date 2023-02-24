@@ -17,7 +17,7 @@ export const preprocess = (raw: any) => {
     data.firstName = raw['First Name']
     data.lastName = raw['Last Name']
     data.aboutMe = raw['About Me']
-    data.index = raw['Index Number']
+    data.index = raw['Index Number'].trim()
     data.photo = `${env.PUBLIC_HOST}/photo/${raw['Index Number']}`
 
     // contact info
