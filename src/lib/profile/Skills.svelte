@@ -11,7 +11,7 @@
         <h3 class="font-semibold text-xs">
             {skill.heading}
         </h3>
-        <p class="text-xs line-clamp-4">
+        <p class="text-xs">
             {skill.skills.join(" | ")}
         </p>
     </div>

@@ -19,7 +19,7 @@
         <p class="text-secondary font-medium text-xs">
             {experience.subheading}
         </p>
-        <p class="text-xs mt-1 line-clamp-3">
+        <p class="text-xs mt-1">
             {experience.description}
         </p>
     </div>

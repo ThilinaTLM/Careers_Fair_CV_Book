@@ -117,8 +117,9 @@ export const preprocess = (raw: any) => {
     data.projects = []
     for (let i = 1; i <= 5; i++) {
         const heading = raw[`Project 0${i} - Title`]
-        const subheading = raw[`Project 0${i} - Tech Stack`]
+        const techStack = (raw[`Project 0${i} - Tech Stack`] || '').split(',').map((skill: string) => skill.trim())
         const description = raw[`Project 0${i} - Description`]
+        const subheading = techStack.join(' | ')
         if (heading) {
             data.projects.push({
                 heading,

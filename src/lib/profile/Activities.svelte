@@ -11,7 +11,7 @@
         <p class="font-bold text-xs">
             {activity.heading}
         </p>
-        <p class="text-xs line-clamp-2">
+        <p class="text-xs">
             {activity.description}
         </p>
     </div>
