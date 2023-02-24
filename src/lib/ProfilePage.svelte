@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="absolute left-[40px] top-[46px] w-[150px] h-[150px] rounded-full bg-gray-300">
-            <img src="{d.photo}" class="rounded-full w-full h-full object-cover" />
+            <img src="{d.photo}" class="rounded-full w-full h-full object-cover" alt="profile photo" />
         </div>
     </div>
 </Page>
@@ -50,6 +50,4 @@
     .grid-cols-content {
         grid-template-columns: 233px 550px;
     }
-
-
 </style>
