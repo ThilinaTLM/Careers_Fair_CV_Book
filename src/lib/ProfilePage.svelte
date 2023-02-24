@@ -36,7 +36,7 @@
             </div>
         </div>
         <div class="absolute left-[40px] top-[46px] w-[150px] h-[150px] rounded-full bg-gray-300">
-            <img src="{d.photo}" class="rounded-full w-full h-full object-cover" alt="profile photo" />
+            <img src="{d.photo}" class="rounded-full w-full h-full object-cover" alt="{d.index}" />
         </div>
     </div>
 </Page>
