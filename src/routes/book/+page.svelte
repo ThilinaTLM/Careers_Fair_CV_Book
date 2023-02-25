@@ -5,16 +5,29 @@
     import {error} from '@sveltejs/kit';
     import {getData, preprocess} from "../../api";
     import IndexPage from "../../lib/IndexPage.svelte";
-    import Introduction from "$lib/Introduction.svelte";
+    import Introduction from "../../lib/Introduction.svelte";
 
     let data: any = [];
     let loading: boolean = true;
+    let photo: boolean = true;
 
     onMount(async () => {
+        // read query params
+        const urlParams = new URLSearchParams(window.location.search);
+        const limit = urlParams.get('limit');
+        const offset = urlParams.get('offset') || 0;
+        const qPhoto = urlParams.get('photo');
+        if (qPhoto === 'false') {
+            photo = false;
+        }
+
         try {
             data = await getData();
             data = data.map(preprocess);
             data = data.sort((a, b) => a.lastName.localeCompare(b.lastName));
+            if (limit) {
+                data = data.slice(offset, offset + limit);
+            }
         } catch (e) {
             throw error(500, {message: e.message});
         } finally {
@@ -54,7 +67,7 @@
 
         <!-- Profiles -->
         {#each data as profile}
-            <ProfilePage d={profile}/>
+            <ProfilePage d={profile} showPhoto="{photo}"/>
         {/each}
 
         <!-- Back Cover -->

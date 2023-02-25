@@ -8,12 +8,26 @@
     import Projects from "./profile/Projects.svelte";
     import Activities from "./profile/Activities.svelte";
     import Education from "$lib/profile/Education.svelte";
+    import {onMount} from "svelte";
+
+    let coloredMargins = false;
+
+    onMount(() => {
+        // read query params
+        const urlParams = new URLSearchParams(window.location.search);
+        const margins = urlParams.get('margins');
+        if (margins === 'colored') {
+            coloredMargins = true;
+        }
+    })
 
     export let d: any;
+    export let showPhoto: boolean = true;
 </script>
 
 <Page>
-    <div class="relative grid grid-rows-con1 h-full w-full font-roboto bg-red-300" id="{d.index}">
+    <div class="relative grid grid-rows-con1 h-full w-full font-roboto" class:bg-red-200={coloredMargins}
+         id="{d.index}">
         <div class="grid grid-cols-content bg-primary content-center">
             <div></div>
             <div class="">
@@ -23,7 +37,7 @@
         </div>
         <div class="grid grid-cols-content gap-4 mx-5 mb-5 h-[988px] overflow-hidden bg-white">
             <div class="mt-5 pt-[80px] h-max-full overflow-hidden">
-                <Contacts d={d.contacts} />
+                <Contacts d={d.contacts}/>
                 <Skills d={d.skills} />
                 <Awards d={d.awards} />
                 <Activities d={d.activities} />
@@ -36,7 +50,9 @@
             </div>
         </div>
         <div class="absolute left-[40px] top-[46px] w-[150px] h-[150px] rounded-full overflow-hidden bg-gray-300">
-            <img src="{d.photo}" class="w-full h-full object-cover object-position" alt="{d.index}" />
+            {#if showPhoto}
+                <img src="{d.photo}" class="w-full h-full object-cover object-position" alt="{d.index}" />
+            {/if}
         </div>
     </div>
 </Page>
@@ -52,6 +68,6 @@
     }
 
     .object-position {
-        object-position: 0 8%;
+        object-position: 50% 8%;
     }
 </style>
