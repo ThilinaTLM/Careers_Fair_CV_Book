@@ -2,7 +2,7 @@
     import {onMount} from "svelte";
     import {getData, preprocess} from "../api";
     import {error} from "@sveltejs/kit";
-    import ProfileLinks from "$lib/ProfileLinks.svelte";
+    import ProfileLinks from "../lib/ProfileLinks.svelte";
 
     let data: any = [];
     let loading = true;
