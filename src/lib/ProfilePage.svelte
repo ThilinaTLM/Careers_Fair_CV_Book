@@ -46,7 +46,7 @@
                 <AboutMe d={d.aboutMe} />
                 <Education d={d.education} />
                 <Experiences d={d.experiences} />
-                <Projects d={d.projects.slice(0, 4)} />
+                <Projects d={d.projects} />
             </div>
         </div>
         <div class="absolute left-[40px] top-[46px] w-[150px] h-[150px] rounded-full overflow-hidden bg-gray-300">

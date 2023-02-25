@@ -4,7 +4,9 @@
     export let d: any;
 </script>
 
-<Heading heading="Extra Curricular Activities" />
+{#if d.length > 0}
+    <Heading heading="Extra Curricular Activities"/>
+{/if}
 
 {#each d as activity}
     <div class="my-2">
