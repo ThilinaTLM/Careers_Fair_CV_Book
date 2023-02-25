@@ -4,8 +4,9 @@
     export let d: any;
 </script>
 
-
-<Heading heading="Awards and Achievements" />
+{#if d.length > 0}
+    <Heading heading="Awards and Achievements"/>
+{/if}
 
 {#each d as award}
     <div class="my-2">
