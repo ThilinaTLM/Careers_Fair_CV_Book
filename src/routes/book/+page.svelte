@@ -60,13 +60,13 @@
         <!-- Introduction -->
         <Introduction />
 
-        <!-- Index Page -->
-        <IndexPage d={data}/>
-
         <!-- Profiles -->
         {#each data as profile}
             <ProfilePage d={profile} showPhoto="{photo}"/>
         {/each}
+
+        <!-- Index Page -->
+        <IndexPage d={data} offset="3"/>
 
         <!-- Back Cover -->
         <BackCover />
