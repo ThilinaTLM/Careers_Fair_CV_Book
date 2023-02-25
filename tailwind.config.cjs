@@ -4,15 +4,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#066fcc",
+        primary: "#5c00ad",
+        themePrimary: "#c37fff",
         secondary: "#646464",
+        coverBackground: "#212120",
+      },
+      scale: {
+        "-100": "-1",
       },
     },
     fontFamily: {
       roboto: ["Roboto"],
+      metropolis: ["Metropolis"],
     },
   },
-  plugins: [
-    require('@tailwindcss/line-clamp'),
-  ],
+  plugins: [require("@tailwindcss/line-clamp")],
 };

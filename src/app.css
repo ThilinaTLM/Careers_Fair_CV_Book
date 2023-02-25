@@ -22,3 +22,20 @@ page[size="A4"] {
         box-shadow: none;
     }
 }
+
+@layer base {
+    @font-face {
+        font-family: 'Metropolis';
+        src: url('/fonts/Metropolis-Light.otf');
+        font-weight: normal;
+        font-display: swap;
+    }
+
+    @font-face {
+        font-family: 'Metropolis';
+        src: url('/fonts/Metropolis-Bold.otf');
+        font-weight: bold;
+        font-display: swap;
+    }
+
+}

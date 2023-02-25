@@ -4,7 +4,9 @@
 
 
 <Page>
-    <div class="font-roboto my-[50px] mx-[60px]">
+    <div class="font-roboto h-[calc(100%_-_150px)] mt-[100px] mb-[50px] mx-[60px] relative">
+        <img src="vector_design_original.svg" alt="cover-design" class="absolute w-[180%] top-[350px] -left-[450px] max-w-none z-10" />
+        <img src="logo_dark.svg" alt="cover-design" class="absolute w-[30%] bottom-0 right-2 z-10" />
         <h1 class="text-3xl text-center uppercase"> Introduction</h1>
         <p class="text-lg mt-6 text-justify">
             The students enrolled in the B.Sc. Engineering Honors Degree specializing in Computer Science

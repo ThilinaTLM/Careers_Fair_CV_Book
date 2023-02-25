@@ -6,6 +6,8 @@
     import {getData, preprocess} from "../../api";
     import IndexPage from "../../lib/IndexPage.svelte";
     import Introduction from "../../lib/Introduction.svelte";
+    import CoverPage from "../../lib/CoverPage.svelte";
+    import BackCover from "$lib/BackCover.svelte";
 
     let data: any = [];
     let loading: boolean = true;
@@ -53,11 +55,7 @@
         </div>
     {:else}
         <!-- Cover Page -->
-        <Page>
-            <div class="grid place-items-center w-full h-full">
-                <h1 class="text-3xl font-bold">CSE Career Fair 2023</h1>
-            </div>
-        </Page>
+        <CoverPage />
 
         <!-- Introduction -->
         <Introduction />
@@ -71,11 +69,7 @@
         {/each}
 
         <!-- Back Cover -->
-        <Page>
-            <div class="grid place-items-center w-full h-full">
-                <h1 class="text-3xl font-bold">Back Cover</h1>
-            </div>
-        </Page>
+        <BackCover />
     {/if}
 {/if}
 
