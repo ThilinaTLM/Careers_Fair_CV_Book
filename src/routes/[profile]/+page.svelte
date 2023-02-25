@@ -34,7 +34,7 @@
 </svelte:head>
 
 {#if loading}
-    <div class="grid w-screen h-screen content-center">
+    <div class="grid h-screen content-center">
         <h1 class="text-3xl font-bold text-center">Loading...</h1>
     </div>
 {:else}
