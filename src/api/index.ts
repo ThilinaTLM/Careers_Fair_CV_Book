@@ -16,7 +16,7 @@ export const preprocess = (raw: any) => {
     // basic info
     data.firstName = raw['First Name']
     data.lastName = raw['Last Name']
-    data.aboutMe = raw['About Me']
+    data.aboutMe = raw['About Me'].replace(/^["”]/, '').replace(/["”]$/, '')
     data.index = raw['Index Number'].trim()
     data.photo = `${env.PUBLIC_HOST}/photo/${raw['Index Number']}`
 
@@ -44,27 +44,29 @@ export const preprocess = (raw: any) => {
         }
     ]
 
+
+
     // skills 
     data.skills = [
         {
             heading: 'Technical Fields',
-            skills: raw['Technical Fields'].split(',').map((skill: string) => skill.trim()),
+            skills: raw['Technical Fields'].replace(/,\s*$/, '').split(',').map((skill: string) => skill.trim()),
         },
         {
             heading: 'Programming Languages',
-            skills: raw['Programming Languages'].split(',').map((skill: string) => skill.trim()),
+            skills: raw['Programming Languages'].replace(/,\s*$/, '').split(',').map((skill: string) => skill.trim()),
         },
         {
             heading: 'Frameworks and Libraries',
-            skills: raw['Frameworks and Libraries'].split(',').map((skill: string) => skill.trim()),
+            skills: raw['Frameworks and Libraries'].replace(/,\s*$/, '').split(',').map((skill: string) => skill.trim()),
         },
         {
             heading: 'Tools and Other',
-            skills: raw['Tools and Other'].split(',').map((skill: string) => skill.trim()),
+            skills: raw['Tools and Other'].replace(/,\s*$/, '').split(',').map((skill: string) => skill.trim()),
         },
     ]
 
-    // archivements
+    // achievements
     data.awards = []
     for (let i = 1; i <= 3; i++) {
         const heading = raw[`Achievement 0${i} - Name`]
@@ -78,16 +80,18 @@ export const preprocess = (raw: any) => {
     }
 
     // education
+    const alResults = raw['A/L Examination Results'].replace('3A', 'AAA');
+    const cgpa = Number(raw['GPA']).toFixed(2)
     data.education = [
         {
             heading: "University of Moratuwa",
             subheading: "B.Sc. in Computer Science and Engineering",
-            description: `CGPA: ${raw['GPA']}`
+            description: `CGPA: ${cgpa}`
         },
         {
             heading: raw['School Name'],
             subheading: "G.C.E. Advanced Level Examination 2017",
-            description: `${raw['A/L Examination Results']} | IR - ${raw['A/L - Island Rank']}`
+            description: `${alResults} | IR - ${raw['A/L - Island Rank']}`
         }
     ]
 
