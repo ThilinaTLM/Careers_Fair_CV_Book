@@ -23,7 +23,7 @@
         </p>
         <p class="relative z-50 text-lg mt-6 text-justify indent-[40px]">
             To facilitate convenience of use, these resumes adhere to a standardized format and are organized
-            alphabetically by the first name of each undergraduate. Furthermore, for the purpose of reference by last
+            alphabetically by the last name of each undergraduate. Furthermore, for the purpose of reference by last
             name, an index is located at the end of the booklet, which lists them accordingly.
         </p>
     </div>
