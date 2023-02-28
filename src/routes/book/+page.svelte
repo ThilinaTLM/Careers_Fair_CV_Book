@@ -1,5 +1,4 @@
 <script lang="ts">
-    import Page from "../../lib/Page.svelte";
     import ProfilePage from "../../lib/ProfilePage.svelte";
     import {onMount} from "svelte";
     import {error} from '@sveltejs/kit';
@@ -27,9 +26,6 @@
             data = await getData();
             data = data.map(preprocess);
             data = data.sort((a, b) => a.lastName.localeCompare(b.lastName));
-
-            console.log(data.map(i => `${i.firstName} ${i.lastName}`))
-
             if (limit) {
                 data = data.slice(offset, offset + limit);
             }

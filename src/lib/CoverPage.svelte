@@ -18,7 +18,7 @@
         <img src="vector_design.svg" alt="cover-design" class="absolute w-[150%] top-[300px] -left-[300px] max-w-none z-10" />
         <img src="logo.svg" alt="logo" class="absolute w-[550px] z-20" />
         <div class="absolute bottom-0 justify z-30 h-[12%] flex flex-col justify-center bg-coverBackground w-full border-t-2 border-t-themePrimary">
-            <p class="text-white font-metropolis font-bold text-center">Department of Computer Science and Engineering</p>
+            <p class="text-white font-metropolis font-bold text-center">Department of Computer Science & Engineering</p>
             <p class="text-white font-metropolis font-normal text-center">University of Moratuwa</p>
         </div>
     </div>
